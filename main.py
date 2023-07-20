@@ -29,7 +29,7 @@ db = mysql.connect(
 
 # For build:
 app = Flask(__name__,
-            static_folder='C:/Users/itay6/HaToaar/Moveo-Task/moveo/build',
+            static_folder='/build',
             static_url_path='/')
 
 
@@ -93,8 +93,8 @@ def handle_code_change(data):
     socketio.emit('code_updated', data)
 
 
-if __name__ == "__main__":
-    socketio.run(app)
+# if __name__ == "__main__":
+#     socketio.run(app)
 
 
 if __name__ == '__main__':
