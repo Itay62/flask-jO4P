@@ -21,15 +21,15 @@ from flask_cors import CORS
 
 
 db = mysql.connect(
-    host=os.environ['containers-us-west-83.railway.app'],
-    user=os.environ['root'],
-    passwd=os.environ['MbWhhASn1kFtyKrjYSlS'],
-    database=os.environ['railway']
+    host=os.environ['DB_HOST'],
+    user=os.environ['DB_USER'],
+    passwd=os.environ['DB_PASSWORD'],
+    database=os.environ['DB_NAME']
 )
 
 # For build:
 app = Flask(__name__,
-            static_folder='build',
+            static_folder='build/',
             static_url_path='/')
 
 
@@ -98,4 +98,4 @@ def handle_code_change(data):
 
 
 if __name__ == '__main__':
-    app.run(port=os.getenv("PORT", default=5000))
+    socketio.run(app)
