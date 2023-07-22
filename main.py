@@ -1,5 +1,5 @@
 import os
-from flask import Flask, abort
+from flask import Flask, abort, render_template
 import mysql.connector as mysql
 # from settings import dbpwd
 import json
@@ -28,14 +28,16 @@ db = mysql.connect(
 )
 
 # For build:
-app = Flask(__name__,
-            static_folder='build/',
-            static_url_path='/')
+# app = Flask(__name__,
+#             static_folder='build/',
+#             static_url_path='/')
+
+app = Flask(__name__)
 
 
 @ app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 
 # app = Flask(__name__)
