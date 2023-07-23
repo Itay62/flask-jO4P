@@ -28,16 +28,14 @@ db = mysql.connect(
 )
 
 # For build:
-# app = Flask(__name__,
-#             static_folder='build/',
-#             static_url_path='/')
-
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder='./build',
+            static_url_path='/')
 
 
 @ app.route('/')
 def index():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 
 # app = Flask(__name__)
