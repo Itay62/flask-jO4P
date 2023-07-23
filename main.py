@@ -13,19 +13,19 @@ from flask_cors import CORS
 # passwd = dbpwd,
 # database = "moveo")
 
-db = mysql.connect(
-    host="containers-us-west-83.railway.app",
-    user="root",
-    passwd="MbWhhASn1kFtyKrjYSlS",
-    database="railway")
-
-
 # db = mysql.connect(
-#     host=os.environ['DB_HOST'],
-#     user=os.environ['DB_USER'],
-#     passwd=os.environ['DB_PASSWORD'],
-#     database=os.environ['DB_NAME']
-# )
+#     host="containers-us-west-83.railway.app",
+#     user="root",
+#     passwd="MbWhhASn1kFtyKrjYSlS",
+#     database="railway")
+
+
+db = mysql.connect(
+    host=os.environ['DB_HOST'],
+    user=os.environ['DB_USER'],
+    passwd=os.environ['DB_PASSWORD'],
+    database=os.environ['DB_NAME']
+)
 
 # For build:
 app = Flask(__name__,
