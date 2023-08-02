@@ -1,2 +1,2 @@
 web: gunicorn main:app
-rq worker --with-scheduler
+gunicorn -w 4 -k gevent app:app
