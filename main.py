@@ -98,4 +98,4 @@ def handle_code_change(data):
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=os.getenv("PORT", default=5000))
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
