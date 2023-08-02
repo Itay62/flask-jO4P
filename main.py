@@ -1,7 +1,7 @@
 import os
 from flask import Flask, abort, render_template
 import mysql.connector as mysql
-# from settings import dbpwd
+from settings import dbpwd
 import json
 from flask_socketio import SocketIO
 from flask_cors import CORS
