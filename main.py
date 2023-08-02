@@ -23,7 +23,7 @@ from flask_cors import CORS
 db = mysql.connect(
     host=os.environ['MYSQLHOST'],
     user=os.environ['MYSQLUSER'],
-    passwd=os.environ['DB_PASSWORD'],
+    passwd=os.environ['MYSQLPASSWORD'],
     database=os.environ['MYSQLDATABASE']
 )
 
