@@ -41,7 +41,7 @@ def index():
 # app = Flask(__name__)
 
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
+# socketio = SocketIO(app, cors_allowed_origins="*")
 
 
 @ app.route('/codelinks', methods=['GET'])
@@ -74,23 +74,23 @@ def get_code(id):
     return json.dumps(dict(zip(headers, record)))
 
 
-@ socketio.on('connect')
-def handle_connect():
-    print("client connected")
+# @ socketio.on('connect')
+# def handle_connect():
+#     print("client connected")
 
 
-@ socketio.on('code_change')
-def handle_code_change(data):
-    print("change io")
-    id = data['id']
-    newCode = data['code']
-    query = "UPDATE codeblocks SET code = %s WHERE id = %s"
-    values = (newCode, id)
-    cursor = db.cursor()
-    cursor.execute(query, values)
-    db.commit()
-    cursor.close()
-    socketio.emit('code_updated', data)
+# @ socketio.on('code_change')
+# def handle_code_change(data):
+#     print("change io")
+#     id = data['id']
+#     newCode = data['code']
+#     query = "UPDATE codeblocks SET code = %s WHERE id = %s"
+#     values = (newCode, id)
+#     cursor = db.cursor()
+#     cursor.execute(query, values)
+#     db.commit()
+#     cursor.close()
+#     socketio.emit('code_updated', data)
 
 
 # if __name__ == "__main__":
@@ -98,4 +98,4 @@ def handle_code_change(data):
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=os.getenv("PORT", default=5000))
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
